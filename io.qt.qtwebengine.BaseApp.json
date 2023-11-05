@@ -153,6 +153,14 @@
             ]
         },
         "qtwebengine-dictionaries/qtwebengine-dictionaries.json",
-        "qt5-webview/qt5-webview.json"
+        "qt5-webview/qt5-webview.json",
+        {
+            "name": "copy-pkgconfig",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p  ${FLATPAK_DEST}/lib/pkgconfig",
+                "cp -nv ${FLATPAK_DEST}/lib/$(gcc --print-multiarch)/pkgconfig/*.pc ${FLATPAK_DEST}/lib/pkgconfig"
+            ]
+        }
     ]
 }
